@@ -1,0 +1,93 @@
+{% extends 'librarian/base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+    body {
+    background-image: url("{% static 'bookstore/images/libr.jpg' %}");
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: -1; 
+  }
+  .modern-header {
+      background-color: #f1f4f9; 
+      border-bottom: 3px solid #ffa726; 
+      font-size: 1.25rem; 
+      font-weight: bold;
+      color: #333; 
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+      border-radius: 8px 8px 0 0; 
+  }
+  
+  .modern-icon {
+      font-size: 1.5rem; 
+      color: #ff7043;
+      transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  
+  .header-title {
+      color: #333;
+      letter-spacing: 0.5px; 
+  }
+  .custom-refresh-button {
+    background: linear-gradient(45deg, #feb47b, #ff7e5f); 
+    color: white;
+    border: none; 
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background 0.3s ease, transform 0.2s ease;
+ }
+  
+  </style>
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-12 mb-3">
+          <div class="col-12 mb-3">
+              <div id="content-wrapper">
+        <div class="container-fluid">
+            
+            <div class="card mb-3">
+                <div class="card-header modern-header">
+                    <i class="fas fa-book-open modern-icon"></i>
+                    <span class="header-title">Details of Book</span>
+                </div>
+                <div class="card-body">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <input type="submit" {% if request.path == '/new' %} value="Add" {% else %} value="Update" {% endif %} class="btn custom-refresh-button"/>
+                <a href="{% url 'lmbook' %}"><button type="button" class="btn custom-refresh-button">Back</button></a>
+            </form>
+        </div>
+    </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

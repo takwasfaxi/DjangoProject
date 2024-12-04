@@ -1,0 +1,99 @@
+{% extends 'publisher/base.html' %}
+{% load static %}
+
+
+{% block body %}
+<style>
+  body {
+  background-image: url("{% static 'bookstore/images/book.avif' %}");
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  z-index: -1; 
+}
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.05);
+}
+</style>
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-3" style="color: red">
+  <p style="color: blue"></p>  
+</div>
+
+
+
+<div class="col-sm-6" style="padding-top: 87px">
+    <div class="card">
+  
+    <h1>Want to know about us ?</h1> 
+  
+</div>
+
+
+<div class="card mb-4">
+<div class="card-body">
+
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="form-group">
+<p>The primary goal of Library is to unite individuals with personal home libraries into a single shared library, enabling the exchange of diverse books from various countries around the world. Users can upload books they wish to share and also access books shared by others.</p>
+</div>
+
+	<div class="col-sm-4"></div>
+	</div>
+
+
+                      </div>
+                    </div>  
+                  </div>
+
+</div>
+
+
+
+<div class="col-sm-3" style="color: red">
+</div>
+
+</div>
+</div>
+
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.dataTables.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

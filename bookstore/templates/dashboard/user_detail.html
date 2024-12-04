@@ -1,0 +1,66 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+      body {
+  background-image: url("{% static 'bookstore/images/kiteb.jpg' %}");
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  z-index: -1; 
+}
+    .custom-refresh-button {
+    background: linear-gradient(45deg, #feb47b, #ff7e5f); 
+    color: white;
+    border: none; 
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background 0.3s ease, transform 0.2s ease;
+ }
+</style>
+
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-12 mb-3">
+          <div class="col-12 mb-3">
+              <div id="content-wrapper">
+        <div class="container-fluid">
+            
+            <div class="card mb-3">
+                
+                <div class="card-body">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+ <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Username:</strong> {{ object.username }}</li>
+              <li class="list-group-item"><strong>Firstname :</strong> {{ object.first_name }}</li>
+              <li class="list-group-item"><strong>Lastname :</strong> {{ object.last_name }}</li>
+              <li class="list-group-item"><strong>Email :</strong> {{ object.email }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row top-buffer" style="padding-top: 10px">
+        <div class="col-12">
+                <a href="{% url 'aluser' %}"><button type="button" class=" custom-refresh-button ">Back</button></a>
+        </div>
+    </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
